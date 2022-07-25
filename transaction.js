@@ -6,7 +6,6 @@ class Transaction {
   showBalance() {
     return this.balance;
   }
-
   calculateNewBalance(action, amount) {
     if (action === 'deposit') {
       this.balance += amount;

@@ -15,7 +15,7 @@ I adhered to the TDD (test-driven development) principles. New tests were writte
 
 The program also follows the OO design (Object-oriented design). The bank accounts are desigend to be instances of the Account Class, and the available actions of the accounts are functions of the Account Class.
 
-This program is simple enough to have only one class, and. Integration tests are not needed.
+This program now consists of one class, therefore testing is relatively simple, one testing suite would suffice to test the Account Class. Integration tests are not needed.
 
 ## Installation
 To run locally, type the following commands in command line:

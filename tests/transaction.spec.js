@@ -14,7 +14,6 @@ describe('Transaction', () => {
   describe('Simple Transaction', () => {
     it('deposits money and changes the balance', () => {
       const transaction = new Transaction(200, 'deposit', 100, '2022-05-06');
-
       expect(transaction.showBalance()).toStrictEqual(300);
     });
     it('withdraws money and changes the balance', () => {
