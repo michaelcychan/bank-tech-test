@@ -1,6 +1,9 @@
 class Transaction {
-  balance() {
-    return 100;
+  constructor (previousBalance) {
+    this.balance = previousBalance;
+  }
+  showBalance() {
+    return this.balance;
   }
 }
 
