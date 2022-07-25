@@ -45,16 +45,16 @@ Once you are inside Node.js, import the Account Class and create a new Account C
 You will be able to deposit and withdraw from the bank account. When you deposit money, it is necessary to enter the date in YYYY-MM-DD format.
 You can check the account balance or get the full bank statement.
 ```
-> myNewAccount.deposit(1000, '2022-05-03');
+> myNewAccount.deposit(1000);
 undefined
-> myNewAccount.withdraw(250, '2022-07-02');
+> myNewAccount.withdraw(250);
 undefined
 > myNewAccount.getBalance();
 750
 > myNewAccount.printStatement();
 'date || credit || debit || balance\n' +
-  '02/07/2022 || || 250.00 || 750.00\n' +
-  '03/05/2022 || 1000.00 || || 1000.00'
+  '25/07/2022 || || 250.00 || 750.00\n' +
+  '25/05/2022 || 1000.00 || || 1000.00'
 ```
 ## Screenshot
 ![Screenshot](./screenshots/BankTechTest-Screenshot-1.png "Screenshot")
