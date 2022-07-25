@@ -15,6 +15,8 @@ I adhered to the TDD (test-driven development) principles. New tests were writte
 
 The program also follows the OO design (Object-oriented design). The bank accounts are desigend to be instances of the Account Class, and the available actions of the accounts are functions of the Account Class. The Account Class holds an array of transactions. 
 
+Tests were added in complexity. As I wished to implement console.log in the printing of the bank statements, I needed to mock the console.log in the testing. Similarly, while the transactiond date should be recorded, days other than today has to be mocked in testing to simulate different days, or to allow the tests to pass after the tests were created.
+
 This program now consists of one class, therefore testing is relatively simple, one testing suite would suffice to test the Account Class. Integration tests are not needed.
 
 ### Note on the Class structure
@@ -42,19 +44,18 @@ Once you are inside Node.js, import the Account Class and create a new Account C
 ```
 
 ## Available commands
-You will be able to deposit and withdraw from the bank account. When you deposit money, it is necessary to enter the date in YYYY-MM-DD format.
-You can check the account balance or get the full bank statement.
+You will be able to deposit and withdraw from the bank account. You can check the account balance or get the full bank statement.
 ```
-> myNewAccount.deposit(1000);
+> myNewAccount.deposit(1000.5);
 undefined
 > myNewAccount.withdraw(250);
 undefined
 > myNewAccount.getBalance();
-750
+750.5
 > myNewAccount.printStatement();
-'date || credit || debit || balance\n' +
-  '25/07/2022 || || 250.00 || 750.00\n' +
-  '25/05/2022 || 1000.00 || || 1000.00'
+date || credit || debit || balance
+25/07/2022 || || 250.00 || 750.50
+25/07/2022 || 1000.50 || || 1000.50
 ```
 ## Screenshot
 ![Screenshot](./screenshots/BankTechTest-Screenshot-1.png "Screenshot")
@@ -71,4 +72,5 @@ Further rules can be applied in the .eslintrc.json file.
 
 ## Further Issues
 
-There are no instructions for how to handle cases such as withdrawing money more than the balance. Currently negative balance is allowed, as some accounts allows overdraft. Further changes to the program is possible when there are more detailed specifications from client.
+Currently there is no restriction on the amount of deposit or withdrawal. There is no instruction on how to handle if the transaction is or below 0. There is also no instruction on how to handle wrong data type. Error messages can be thrown if neccessary using .throw().
+There are no instructions for how to handle cases such as withdrawing money more than the balance. Currently negative balance is allowed (as if overdraft). Further changes to the program is possible when there are more detailed specifications from client.
