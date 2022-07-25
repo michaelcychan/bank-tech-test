@@ -13,7 +13,7 @@ ESLint is used for Checking Syntax.
 ## Methodology
 I adhered to the TDD (test-driven development) principles. New tests were written as a guide for development, then the program is developed to pass the tests. 
 
-The program also follows the OO design (Object-oriented design). The bank accounts are desigend to be instances of the Account Class, and the available actions of the accounts are functions of the Account Class.
+The program also follows the OO design (Object-oriented design). The bank accounts are desigend to be instances of the Account Class, and the available actions of the accounts are functions of the Account Class. The Account Class holds an array of transactions. 
 
 This program now consists of one class, therefore testing is relatively simple, one testing suite would suffice to test the Account Class. Integration tests are not needed.
 
@@ -55,8 +55,19 @@ undefined
 ![Screenshot](./screenshots/BankTechTest-Screenshot-1.png "Screenshot")
 
 ## Testing:
+
+### Jest
 To run the unit test with coverage:
 ```
 jest --coverage
 ```
 ![Jest Test Screenshot](./screenshots/BankTechTest-Screenshot-2.png "Jest Test")
+
+### ESLint
+To run ESLint:
+```
+npx eslint
+```
+## Further Issues
+
+There are no instructions for cases such as withdrawing money more than the balance. Currently negative balance is allowed, as some accounts allows overdraft. Further changes to the program is possible when there are more detailed description.
