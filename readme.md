@@ -11,17 +11,19 @@ Jest is used for Unit Testing.
 ESLint is used for Checking Syntax.
 
 ## Installation
-Run the following code:
+To run locally, type the following commands in command line:
 ```
+git clone https://github.com/michaelcychan/bank-tech-test.git
 npm install
 ```
+
 ## Running the program
 In command line, run Node.js:
 ```
 node
 ```
 
-When you are inside Node.js, you will need to require the Account Class and create a new Account Class instance:
+Once you are inside Node.js, import the Account Class and create a new Account Class instance:
 ```
 > const Account = require('./account');
 > const myNewAccount = new Account();
@@ -44,3 +46,10 @@ undefined
 ```
 ## Screenshot
 ![Screenshot](./screenshots/BankTechTest-Screenshot-1.png "Screenshot")
+
+## Testing:
+To run the unit test with coverage:
+```
+jest --coverage
+```
+![Jest Test Screenshot](./screenshots/BankTechTest-Screenshot-2.png "Jest Test")
