@@ -68,6 +68,8 @@ To run ESLint:
 ```
 npx eslint
 ```
+
+Further rules can be applied in the .eslintrc.json file.
 ## Further Issues
 
-There are no instructions for cases such as withdrawing money more than the balance. Currently negative balance is allowed, as some accounts allows overdraft. Further changes to the program is possible when there are more detailed description.
+There are no instructions for how to handle cases such as withdrawing money more than the balance. Currently negative balance is allowed, as some accounts allows overdraft. Further changes to the program is possible when there are more detailed specifications from client.
