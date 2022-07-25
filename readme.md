@@ -17,6 +17,11 @@ The program also follows the OO design (Object-oriented design). The bank accoun
 
 This program now consists of one class, therefore testing is relatively simple, one testing suite would suffice to test the Account Class. Integration tests are not needed.
 
+### Note on the Class structure
+There was an attempt to make each transaction one instance. However, the current design is that the transactions are kept as Javascript Objects in an array. Functions responsible for deposits and withdrawals (.deposit() and .withdraw()) are easy to use and understand, there is no need to create another class instance for each transaction. I attempted to refactor a Transaction class to separate each transaction from the current Account class, but that would expand the length of the codes tremendously. 
+
+I think the Account class codebase currently is readable enough. 
+
 ## Installation
 To run locally, type the following commands in command line:
 ```
@@ -56,20 +61,14 @@ undefined
 
 ## Testing:
 
-### Jest
-To run the unit test with coverage:
+To run ESLint and Jest test with coverage:
 ```
-jest --coverage
+npm run tets
 ```
 ![Jest Test Screenshot](./screenshots/BankTechTest-Screenshot-2.png "Jest Test")
 
-### ESLint
-To run ESLint:
-```
-npx eslint
-```
-
 Further rules can be applied in the .eslintrc.json file.
+
 ## Further Issues
 
 There are no instructions for how to handle cases such as withdrawing money more than the balance. Currently negative balance is allowed, as some accounts allows overdraft. Further changes to the program is possible when there are more detailed specifications from client.
