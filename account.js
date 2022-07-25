@@ -14,10 +14,9 @@ class Account {
   getBalance() {
     return this.balance;
   }
+
   printStatement() {
-    const header = "date || credit || debit || balance";
-    const contents = this.#generateStatementContent();
-    return (this.transactions.length === 0) ? header : header + contents;
+    console.log(this.#generateFullStatement());
   }
 
   // internal functions
@@ -45,6 +44,12 @@ class Account {
       );
     });
     return "\n" + contents.reverse().join("\n");
+  }
+
+  #generateFullStatement() {
+    const header = "date || credit || debit || balance";
+    const contents = this.#generateStatementContent();
+    return (this.transactions.length === 0) ?  header : header + contents;
   }
 }
 module.exports = Account;
