@@ -5,6 +5,12 @@ class Transaction {
   showBalance() {
     return this.balance;
   }
+  deposit(money, date) {
+    this.balance += money;
+  }
+  withdraw(money, date) {
+    this.balance -= money;
+  }
 }
 
 module.exports = Transaction;
