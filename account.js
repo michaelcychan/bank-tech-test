@@ -3,13 +3,13 @@ class Account {
     this.balance = 0;
     this.transactions = []; // array to store transactions data
   }
-  deposit(money, date) {
+  deposit(money, date = Date.now()) {
     this.balance += money;
-    this.transactions.push({date: this.#stringToDate(date), in: money, out: null, balance: this.balance});
+    this.transactions.push({date: date, in: money, out: null, balance: this.balance});
   }
-  withdraw(money, date) {
+  withdraw(money, date = Date.now()) {
     this.balance -= money;
-    this.transactions.push({date: this.#stringToDate(date), in: null, out: money, balance: this.balance});
+    this.transactions.push({date: date, in: null, out: money, balance: this.balance});
   }
   getBalance() {
     return this.balance;
@@ -20,11 +20,6 @@ class Account {
   }
 
   // internal functions
-  #stringToDate(dateString) {
-    // breaking down the date string into year, month (00 being Jan), and day.
-    // Returning the date value
-    return new Date(dateString.slice(0,4), dateString.slice(5,7) - 1, dateString.slice(8,10));
-  }
 
   #numberToDisplay(number) {
     // return null if input is null, otherwise return number with 2 decimal places.
