@@ -27,17 +27,13 @@ class Account {
         ].join(" || ").replace(/\s+/g, " ") // removing double whitespace after joining
       );
     });
-    contents.reverse(); // latest transaction first
-    if (contents.length === 0) {
-      return header;
-    } else {
-      return header + "\n" + contents.join('\n');
-    } 
+    return (contents.length === 0) ? header : header + "\n" + contents.reverse().join('\n');
   };
 
   // internal functions
   stringToDate(dateString) {
-    // breaking down the date into year, month, and day. returning the date value
+    // breaking down the date into year, month (00 being Jan), and day.
+    // Returning the date value
     return new Date(dateString.slice(0,4), dateString.slice(5,7) - 1, dateString.slice(8,10));
   };
 
