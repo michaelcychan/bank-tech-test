@@ -13,14 +13,13 @@ describe('Transaction', () => {
   });
   describe('Simple Transaction', () => {
     it('deposits money and changes the balance', () => {
-      const transaction = new Transaction(200);
-      transaction.deposit(100, '2022-05-06');
+      const transaction = new Transaction(200, 'deposit', 100, '2022-05-06');
+
       expect(transaction.showBalance()).toStrictEqual(300);
     });
     it('withdraws money and changes the balance', () => {
-      const transaction = new Transaction(200);
-      transaction.withdraw(70, '2022-05-06');
+      const transaction = new Transaction(200, 'withdraw', 70, '2022-07-02');
       expect(transaction.showBalance()).toStrictEqual(130);
-    })
+    });
   });
 })
