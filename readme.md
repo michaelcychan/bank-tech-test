@@ -15,7 +15,7 @@ I adhered to the TDD (test-driven development) principles. New tests were writte
 
 The program also follows the OO design (Object-oriented design). The bank accounts are desigend to be instances of the Account Class, and the available actions of the accounts are functions of the Account Class.
 
-This program is simple enough to have only one class, and therefore only one unit test. Integration tests are not needed.
+This program is simple enough to have only one class, and. Integration tests are not needed.
 
 ## Installation
 To run locally, type the following commands in command line:
@@ -60,4 +60,3 @@ To run the unit test with coverage:
 jest --coverage
 ```
 ![Jest Test Screenshot](./screenshots/BankTechTest-Screenshot-2.png "Jest Test")
-
