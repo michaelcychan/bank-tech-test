@@ -1,19 +1,19 @@
 class Account {
   constructor() {
     this.balance = 0
-    this.transactions = [];
-  };
+    this.transactions = []; // array to store transactions data
+  }
   deposit(money, date) {
     this.balance += money;
     this.transactions.push({date: this.stringToDate(date), in: money, out: null, balance: this.balance});
-  };
+  }
   withdraw(money, date) {
     this.balance -= money;
     this.transactions.push({date: this.stringToDate(date), in: null, out: money, balance: this.balance});
   }
   getBalance() {
     return this.balance;
-  };
+  }
   printStatement() {
     const header = "date || credit || debit || balance";
     let contents = [];
@@ -28,14 +28,14 @@ class Account {
       );
     });
     return (contents.length === 0) ? header : header + "\n" + contents.reverse().join('\n');
-  };
+  }
 
   // internal functions
   stringToDate(dateString) {
-    // breaking down the date into year, month (00 being Jan), and day.
+    // breaking down the date string into year, month (00 being Jan), and day.
     // Returning the date value
     return new Date(dateString.slice(0,4), dateString.slice(5,7) - 1, dateString.slice(8,10));
-  };
+  }
 
   numberToDisplay(number) {
     return (number === null) ? null : number.toFixed(2);

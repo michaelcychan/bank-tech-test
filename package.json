@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/michaelcychan/bank-tech-test#readme",
   "dependencies": {
-    "eslint": "^8.20.0",
     "jest": "^28.1.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0"
   }
 }
