@@ -1,6 +1,6 @@
 class Account {
   constructor() {
-    this.balance = 0
+    this.balance = 0;
     this.transactions = []; // array to store transactions data
   }
   deposit(money, date) {
@@ -37,14 +37,14 @@ class Account {
     this.transactions.forEach((transaction) => {
       contents.push(
         [
-          transaction.date.toLocaleDateString('en-GB'),
+          transaction.date.toLocaleDateString("en-GB"),
           this.numberToDisplay(transaction.in),
           this.numberToDisplay(transaction.out),
           this.numberToDisplay(transaction.balance)
         ].join(" || ").replace(/\s+/g, " ") // removing double whitespace after joining
       );
     });
-    return "\n" + contents.reverse().join('\n');
+    return "\n" + contents.reverse().join("\n");
   }
 }
 
