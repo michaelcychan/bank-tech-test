@@ -16,6 +16,23 @@ class Account {
   }
   printStatement() {
     const header = "date || credit || debit || balance";
+    const contents = this.generateStatementContent();
+    return (this.transactions.length === 0) ? header : header + contents;
+  }
+
+  // internal functions
+  stringToDate(dateString) {
+    // breaking down the date string into year, month (00 being Jan), and day.
+    // Returning the date value
+    return new Date(dateString.slice(0,4), dateString.slice(5,7) - 1, dateString.slice(8,10));
+  }
+
+  numberToDisplay(number) {
+    // return null if input is null, otherwise return number with 2 decimal places.
+    return (number === null) ? null : number.toFixed(2);
+  }
+
+  generateStatementContent() {
     let contents = [];
     this.transactions.forEach((transaction) => {
       contents.push(
@@ -27,20 +44,8 @@ class Account {
         ].join(" || ").replace(/\s+/g, " ") // removing double whitespace after joining
       );
     });
-    return (contents.length === 0) ? header : header + "\n" + contents.reverse().join('\n');
+    return "\n" + contents.reverse().join('\n');
   }
-
-  // internal functions
-  stringToDate(dateString) {
-    // breaking down the date string into year, month (00 being Jan), and day.
-    // Returning the date value
-    return new Date(dateString.slice(0,4), dateString.slice(5,7) - 1, dateString.slice(8,10));
-  }
-
-  numberToDisplay(number) {
-    return (number === null) ? null : number.toFixed(2);
-  }
-
 }
 
 module.exports = Account;
