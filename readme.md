@@ -2,6 +2,8 @@
 
 This is an Individual Technical Challenge at Week 10 in Makers Academy Bootcamp. This programme allows users to interact via a REPL (Node.js) to simulate bank transactions.
 
+Link to all Individual technical challenges: https://github.com/makersacademy/course/tree/main/individual_challenges
+
 ## Tools
 This programme runs on Node.js. 
 The program is written in Javascript.
