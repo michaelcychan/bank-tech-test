@@ -1,17 +1,45 @@
 class Account {
-  constructor(dateOpeningAccount) {
+  constructor() {
     this.balance = 0
+    this.transactions = []
   };
   deposit(money, date) {
     this.balance += money;
+    this.transactions.push({date: this.stringToDate(date), in: money, out: null, balance: this.balance});
   };
   getBalance() {
     return this.balance;
   };
   printStatement() {
-    let output = "date || credit || debit || balance \n 24/07/2022 || || || 0.00"
-    return output;
+    const header = "date || credit || debit || balance";
+    let contents = [];
+    this.transactions.forEach((transaction) => {
+      contents.push(
+        [
+          transaction.date.toLocaleDateString('en-GB'),
+          this.numberToDisplay(transaction.in),
+          this.numberToDisplay(transaction.out),
+          this.numberToDisplay(transaction.balance)
+        ].join(" || ").replace(/\s+/g, " ") // removing double whitespace after joining
+      );
+    });
+    if (contents.length === 0) {
+      return header;
+    } else {
+      return header + "\n" + contents;
+    } 
+  };
+
+  // internal functions
+  stringToDate(dateString) {
+    // breaking down the date into year, month, and day. returning the date value
+    return new Date(dateString.slice(0,4), dateString.slice(5,7) - 1, dateString.slice(8,10));
+  };
+
+  numberToDisplay(number) {
+    return (number === null) ? null : number.toFixed(2);
   }
+
 }
 
 module.exports = Account;
