@@ -7,6 +7,10 @@ class Account {
     this.balance += money;
     this.transactions.push({date: this.stringToDate(date), in: money, out: null, balance: this.balance});
   };
+  withdraw(money, date) {
+    this.balance -= money;
+    this.transactions.push({date: this.stringToDate(date), in: null, out: money, balance: this.balance});
+  }
   getBalance() {
     return this.balance;
   };
