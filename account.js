@@ -1,7 +1,7 @@
 class Account {
   constructor() {
     this.balance = 0
-    this.transactions = []
+    this.transactions = [];
   };
   deposit(money, date) {
     this.balance += money;
@@ -27,10 +27,11 @@ class Account {
         ].join(" || ").replace(/\s+/g, " ") // removing double whitespace after joining
       );
     });
+    contents.reverse(); // latest transaction first
     if (contents.length === 0) {
       return header;
     } else {
-      return header + "\n" + contents;
+      return header + "\n" + contents.join('\n');
     } 
   };
 
