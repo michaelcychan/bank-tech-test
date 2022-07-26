@@ -19,6 +19,17 @@ describe('Statement', () => {
     Statement.print(accountDouble.getTransactions());
     expect(console.log).toHaveBeenCalledWith('date || credit || debit || balance\n25/07/2022 || 100.00 || || 100.00');
   });
+  it('prints bank statement with two transactions', () => {
+    const date20220725 = new Date(2022, 6, 25);
+    const accountDouble = {
+      getTransactions: () => [
+        {date: date20220725, in: 100, out: null, balance: 100},
+        {date: date20220725, in: null, out: 30, balance: 70}
+      ]
+    }
+    Statement.print(accountDouble.getTransactions());
+    expect(console.log).toHaveBeenCalledWith('date || credit || debit || balance\n25/07/2022 || || 30.00 || 70.00\n25/07/2022 || 100.00 || || 100.00');
+  })
   it('prints bank statement with two transactions and decimal places', () => {
     const date20220725 = new Date(2022, 6, 25);
     const date20220726 = new Date(2022, 6, 26);
@@ -34,7 +45,7 @@ describe('Statement', () => {
   it('prints bank statement with three transactions', () => {
     const date1 = new Date(2023, 0, 10);
     const date2 = new Date(2023, 0, 13);
-    const date3 = new Date(2023, 0, 14)
+    const date3 = new Date(2023, 0, 14);
     const accountDouble = {
       getTransactions: () => [
         {date: date1, in: 1000, out: null, balance: 1000},
@@ -48,7 +59,7 @@ describe('Statement', () => {
   it('prints bank statements in chronological order even when the input were not', () => {
     const date1 = new Date(2023, 0, 10);
     const date2 = new Date(2023, 0, 13);
-    const date3 = new Date(2023, 0, 14)
+    const date3 = new Date(2023, 0, 14);
     const accountDouble = {
       getTransactions: () => [
         {date: date3, in: null, out: 500, balance: 2500},

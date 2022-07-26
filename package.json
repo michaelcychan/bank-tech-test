@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx eslint && jest --coverage"
+    "test": "npx eslint && jest --coverage --verbose"
   },
   "repository": {
     "type": "git",

@@ -6,7 +6,7 @@ class Statement {
   static #generateStatementContent(transactions) {
     const header = 'date || credit || debit || balance';
     let contents = [];
-    transactions = this.#sortTransactions(transactions);
+    transactions = this.#sortTransactions(transactions.reverse());
     transactions.forEach((transaction) => {
       contents.push(
         [
